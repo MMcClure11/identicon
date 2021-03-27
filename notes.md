@@ -1,4 +1,4 @@
-3/27/21
+3/27/21 50 min sections 34-41
 
 Flow of the app:
 String -> Compute MD5 hash of string -> List of numbers based on the string -> Pick color -> Build grid of squares -> Convert grid into image -> Save image
