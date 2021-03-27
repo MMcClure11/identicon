@@ -31,10 +31,19 @@ Reminder you can't attach functions to the struct like you might in Ruby. We cou
 
   Then refactor it so that it's returning the struct with a color key
 
+  def build_grid(%Identicon.Image{hex: hex} = image) do 
+    hex
+    |> Enum.chunk(3) #Enum.chunk(hex, 3)
+    |> Enum.map(&mirror_row/1) #we cannot pass a reference to a function like in javascript, se we do it with the ampersand and the num of arguments it takes
+    |> List.flatten #we don't want a list of lists
+  end
+
   helper function
-    def mirror_row(row) do 
+  def mirror_row(row) do 
     # [145, 46, 200]
     [first, second | _tail] = row
     # [145, 46, 200, 46, 145]
     row ++ [second, first]
   end
+
+  When iterating in Elixir, we don't know the index of the particular element we are operating on
