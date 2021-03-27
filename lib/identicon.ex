@@ -17,6 +17,15 @@ defmodule Identicon do
     |> hash_input
     |> pick_color
     |> build_grid
+    |> filter_odd_squares
+  end
+
+  def filter_odd_squares(%Identicon.Image{grid: grid} = image) do 
+    grid = Enum.filter grid, fn({code, _index}) -> 
+      rem(code, 2) == 0 #rem calculates the remainder
+    end
+
+    %Identicon.Image{image | grid: grid}
   end
 
   def build_grid(%Identicon.Image{hex: hex} = image) do 
@@ -26,7 +35,8 @@ defmodule Identicon do
       |> Enum.map(&mirror_row/1)
       |> List.flatten
       |> Enum.with_index #takes every element and turns it into a two element tuple with the second element being the index
-      %Identicon.Image{image | grid: grid}
+      
+    %Identicon.Image{image | grid: grid}
   end
 
   def mirror_row(row) do 
