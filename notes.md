@@ -28,3 +28,5 @@ Reminder you can't attach functions to the struct like you might in Ruby. We cou
     %Identicon.Image{hex: [r, g, b | _tail]} = image
     [r, g, b]
   end
+
+  Then refactor it so that it's returning the struct with a color key
