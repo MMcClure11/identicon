@@ -30,3 +30,11 @@ Reminder you can't attach functions to the struct like you might in Ruby. We cou
   end
 
   Then refactor it so that it's returning the struct with a color key
+
+  helper function
+    def mirror_row(row) do 
+    # [145, 46, 200]
+    [first, second | _tail] = row
+    # [145, 46, 200, 46, 145]
+    row ++ [second, first]
+  end

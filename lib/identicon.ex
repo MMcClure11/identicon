@@ -22,13 +22,11 @@ defmodule Identicon do
   def build_grid(%Identicon.Image{hex: hex} = image) do 
     hex
     |> Enum.chunk(3) #Enum.chunk(hex, 3)
-    # |> mirror_row
+    |> Enum.map(&mirror_row/1) #we cannot pass a reference to a function like in javascript, se we do it with the ampersand and the num of arguments it takes
   end
 
   def mirror_row(row) do 
-    # [145, 46, 200]
     [first, second | _tail] = row
-    # [145, 46, 200, 46, 145]
     row ++ [second, first]
   end
 
