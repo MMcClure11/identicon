@@ -1,4 +1,4 @@
-3/27/21 50 min sections 34-41
+3/27/21 50 min sections 34-41, 80 min sections 42-50
 
 Flow of the app:
 String -> Compute MD5 hash of string -> List of numbers based on the string -> Pick color -> Build grid of squares -> Convert grid into image -> Save image
@@ -47,3 +47,7 @@ Reminder you can't attach functions to the struct like you might in Ruby. We cou
   end
 
   When iterating in Elixir, we don't know the index of the particular element we are operating on
+
+  $ Identicon.main("asdf")
+  new terminal
+  $ open asdf.png
