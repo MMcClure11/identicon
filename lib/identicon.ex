@@ -4,12 +4,12 @@ defmodule Identicon do
   """
 
   @doc """
-  Hello world.
+  Main
 
   ## Examples
 
-      iex> Identicon.hello()
-      :world
+      iex(1)> Identicon.main("strawberry")
+      :ok
 
   """
   def main(input) do
