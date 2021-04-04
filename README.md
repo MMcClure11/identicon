@@ -2,6 +2,16 @@
 
 **TODO: Add description**
 
+## To Run
+
+$ iex -S mix
+$ Identicon.main("string")
+Where "string" is the series of characters you want turned into an identicon.
+In a new terminal in the Identicon directory you can run
+$ open string.png
+and it will reveal the created identicon.
+
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
