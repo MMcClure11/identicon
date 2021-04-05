@@ -1,7 +1,8 @@
 # Identicon
 
-**TODO: Add description**
-- The application allows a user to create identicons based on a string that they input.
+**Description**
+
+- Identicon allows a user to create identicons based on a string that they input.
 - The flow of the app is as follows:
     - Take in a string
     - Compute the MD5 hash of the string
@@ -13,12 +14,21 @@
 
 ## To Run
 
+If you have Elixir installed on your system, you can fork and clone this GitHub repository. CD into the project directory. To be able to create an identicon you will need access to the Erlang Graphical Drawer which is included as a dependency in the mix.exs file. To add the dependency to the project run: 
+
+    $ mix deps.get 
+
+- To create an identicon, while in the project directory run:
+
     $ iex -S mix
     $ Identicon.main("string")
-    Where "string" is the series of characters you want turned into an identicon.
-    In a new terminal in the Identicon directory you can run
+
+- "string" is the series of characters you want turned into an identicon.
+- In a new terminal in the Identicon directory you can run.
+
     $ open string.png
-    and it will reveal the created identicon.
+
+- and it will reveal the created identicon.
 
 
 ## Installation
