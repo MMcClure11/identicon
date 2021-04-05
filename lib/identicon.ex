@@ -95,7 +95,7 @@ defmodule Identicon do
         hex: [145, 46, 200, 3, 178, 206, 73, 228, 165, 65, 6, 141, 73, 90, 181, 112],
         pixel_map: nil
       }
-      iex(4)> grid = Identicon.build_grid(color)
+      iex(4)> Identicon.build_grid(color)
       %Identicon.Image{
         color: {145, 46, 200},
         grid: [ {145, 0}, {46, 1}, {200, 2}, {46, 3}, {145, 4}, 
@@ -135,14 +135,7 @@ defmodule Identicon do
   Uses pattern matching to return a struct with color tuple containing the first three numbers from the hex list which is used to set the RGB for color and the hex list.
   
   Examples:
-      iex(1)> hash_input = Identicon.hash_input("asdf")
-      %Identicon.Image{
-        color: nil,
-        grid: nil,
-        hex: [145, 46, 200, 3, 178, 206, 73, 228, 165, 65, 6, 141, 73, 90, 181, 112],
-        pixel_map: nil
-      }
-      iex(2)> color = Identicon.pick_color(hash_input)
+      iex> Identicon.pick_color(%Identicon.Image{hex: [145, 46, 200, 3, 178, 206, 73, 228, 165, 65, 6, 141, 73, 90, 181, 112]})
       %Identicon.Image{
         color: {145, 46, 200},
         grid: nil,
@@ -158,7 +151,7 @@ defmodule Identicon do
   Returns a struct with hex containing a list of 16 numbers ranging from 0-255 to use to assign the color for the identicon and build the grid.
 
   Examples:
-      iex(1)> hash_input = Identicon.hash_input("asdf")
+      iex> Identicon.hash_input("asdf")
       %Identicon.Image{
         color: nil,
         grid: nil,
