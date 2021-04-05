@@ -1,15 +1,24 @@
 # Identicon
 
 **TODO: Add description**
+- The application allows a user to create identicons based on a string that they input.
+- The flow of the app is as follows:
+    - Take in a string
+    - Compute the MD5 hash of the string
+    - Create a list of numberes based on the string
+    - Create an RGB color based on the first three numbers
+    - Build a grid of squares
+    - Convert the grid into an image
+    - Save the image as a png file
 
 ## To Run
 
-$ iex -S mix
-$ Identicon.main("string")
-Where "string" is the series of characters you want turned into an identicon.
-In a new terminal in the Identicon directory you can run
-$ open string.png
-and it will reveal the created identicon.
+    $ iex -S mix
+    $ Identicon.main("string")
+    Where "string" is the series of characters you want turned into an identicon.
+    In a new terminal in the Identicon directory you can run
+    $ open string.png
+    and it will reveal the created identicon.
 
 
 ## Installation
