@@ -18,17 +18,18 @@ If you have Elixir installed on your system, you can fork and clone this GitHub 
 
     $ mix deps.get 
 
-- To create an identicon, while in the project directory run:
+To create an identicon, while in the project directory run:
 
     $ iex -S mix
+
     $ Identicon.main("string")
 
-- "string" is the series of characters you want turned into an identicon.
-- In a new terminal in the Identicon directory you can run.
+"string" is the series of characters you want turned into an identicon.
+In a new terminal in the Identicon directory you can run.
 
     $ open string.png
 
-- and it will reveal the created identicon.
+and it will bring up the png of the created identicon.
 
 
 ## Installation
