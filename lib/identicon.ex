@@ -38,6 +38,18 @@ defmodule Identicon do
     :egd.render(image)
   end
 
+  @doc """
+  Iterates over all the tuples in the grid and for each tuple it creates a set of x,y coordinates for the top left and bottom right of the square to be filled in.
+
+  Examples:
+      iex> Identicon.build_pixel_map(%Identicon.Image{grid: [{30, 0}, {150, 4}]})
+      %Identicon.Image{
+        color: nil,
+        grid: [{30, 0}, {150, 4}],
+        hex: nil,
+        pixel_map: [{{0, 0}, {50, 50}}, {{200, 0}, {250, 50}}]
+      }
+  """
   def build_pixel_map(%Identicon.Image{grid: grid} = image) do 
     pixel_map = Enum.map grid, fn({_code, index }) -> 
       horizontal = rem(index, 5) * 50
