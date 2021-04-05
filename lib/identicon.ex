@@ -62,7 +62,9 @@ defmodule Identicon do
   @doc """
   Uses the hex list to build the grid.
   Enum.chunk(3) returns a list of lists where the lists are the size indicated in the second argument of chunk/2.
-
+  Enum.map(&mirror_row/1) passes a reference to the mirror_row function.
+  List.flatten turns the list of lists into a list of elements.
+  Enum.with_index takes every element and turns it into a two element tuple with the second element being the index.
 
   Examples:
       iex(1)> hash_input = Identicon.hash_input("asdf")
@@ -82,32 +84,11 @@ defmodule Identicon do
       iex(4)> grid = Identicon.build_grid(color)
       %Identicon.Image{
         color: {145, 46, 200},
-        grid: [
-          {145, 0},
-          {46, 1},
-          {200, 2},
-          {46, 3},
-          {145, 4},
-          {3, 5},
-          {178, 6},
-          {206, 7},
-          {178, 8},
-          {3, 9},
-          {73, 10},
-          {228, 11},
-          {165, 12},
-          {228, 13},
-          {73, 14},
-          {65, 15},
-          {6, 16},
-          {141, 17},
-          {6, 18},
-          {65, 19},
-          {73, 20},
-          {90, 21},
-          {181, 22},
-          {90, 23},
-          {73, 24}
+        grid: [ {145, 0}, {46, 1}, {200, 2}, {46, 3}, {145, 4}, 
+          {3, 5}, {178, 6}, {206, 7}, {178, 8}, {3, 9}, 
+          {73, 10}, {228, 11}, {165, 12}, {228, 13}, {73, 14}, 
+          {65, 15}, {6, 16}, {141, 17}, {6, 18}, {65, 19}, 
+          {73, 20}, {90, 21}, {181, 22}, {90, 23}, {73, 24}
         ],
         hex: [145, 46, 200, 3, 178, 206, 73, 228, 165, 65, 6, 141, 73, 90, 181, 112],
         pixel_map: nil
@@ -119,7 +100,7 @@ defmodule Identicon do
       |> Enum.chunk(3) 
       |> Enum.map(&mirror_row/1)
       |> List.flatten
-      |> Enum.with_index #takes every element and turns it into a two element tuple with the second element being the index
+      |> Enum.with_index
       
     %Identicon.Image{image | grid: grid}
   end
