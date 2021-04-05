@@ -52,9 +52,23 @@ defmodule Identicon do
     %Identicon.Image{image | pixel_map: pixel_map}
   end
 
+  @doc """
+  Filters out hex codes that are odd. 
+  Uses rem to calculate the remainder to return true if the hex code is divisible by 2.
+  Returns the struct with the updated grid with only even hex codes.
+
+  Examples:
+      iex> Identicon.filter_odd_squares(%Identicon.Image{grid: [{30, 0}, {31, 2}, {45, 3}, {150, 4}]})
+      %Identicon.Image{
+        color: nil,
+        grid: [{30, 0}, {150, 4}],
+        hex: nil,
+        pixel_map: nil
+      }
+  """
   def filter_odd_squares(%Identicon.Image{grid: grid} = image) do 
-    grid = Enum.filter grid, fn({code, _index}) -> 
-      rem(code, 2) == 0 #rem calculates the remainder
+    grid = Enum.filter grid, fn({hex_code, _index}) -> 
+      rem(hex_code, 2) == 0 #rem calculates the remainder
     end
 
     %Identicon.Image{image | grid: grid}
