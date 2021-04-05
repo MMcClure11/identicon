@@ -59,7 +59,60 @@ defmodule Identicon do
 
     %Identicon.Image{image | grid: grid}
   end
+  @doc """
+  Uses the hex list to build the grid.
+  Enum.chunk(3) returns a list of lists where the lists are the size indicated in the second argument of chunk/2.
 
+
+  Examples:
+      iex(1)> hash_input = Identicon.hash_input("asdf")
+      %Identicon.Image{
+        color: nil,
+        grid: nil,
+        hex: [145, 46, 200, 3, 178, 206, 73, 228, 165, 65, 6, 141, 73, 90, 181, 112],
+        pixel_map: nil
+      }
+      iex(2)> color = Identicon.pick_color(hash_input)
+      %Identicon.Image{
+        color: {145, 46, 200},
+        grid: nil,
+        hex: [145, 46, 200, 3, 178, 206, 73, 228, 165, 65, 6, 141, 73, 90, 181, 112],
+        pixel_map: nil
+      }
+      iex(4)> grid = Identicon.build_grid(color)
+      %Identicon.Image{
+        color: {145, 46, 200},
+        grid: [
+          {145, 0},
+          {46, 1},
+          {200, 2},
+          {46, 3},
+          {145, 4},
+          {3, 5},
+          {178, 6},
+          {206, 7},
+          {178, 8},
+          {3, 9},
+          {73, 10},
+          {228, 11},
+          {165, 12},
+          {228, 13},
+          {73, 14},
+          {65, 15},
+          {6, 16},
+          {141, 17},
+          {6, 18},
+          {65, 19},
+          {73, 20},
+          {90, 21},
+          {181, 22},
+          {90, 23},
+          {73, 24}
+        ],
+        hex: [145, 46, 200, 3, 178, 206, 73, 228, 165, 65, 6, 141, 73, 90, 181, 112],
+        pixel_map: nil
+      }
+  """
   def build_grid(%Identicon.Image{hex: hex} = image) do 
     grid = 
       hex
@@ -71,6 +124,13 @@ defmodule Identicon do
     %Identicon.Image{image | grid: grid}
   end
 
+  @doc """
+  Creates rows where the last two elements are appended as mirrors of the first two elements.
+
+  Examples:
+      iex(1)> Identicon.mirror_row([145, 46, 200])
+      [145, 46, 200, 46, 145]
+  """
   def mirror_row(row) do 
     [first, second | _tail] = row
     row ++ [second, first]
