@@ -22,14 +22,16 @@ To create an identicon, while in the project directory run:
 
     $ iex -S mix
 
-    $ Identicon.main("string")
+    $ Identicon.main("banana")
 
-"string" is the series of characters you want turned into an identicon.
+"banana" is the series of characters you want turned into an identicon.
 In a new terminal in the Identicon directory you can run.
 
-    $ open string.png
+    $ open banana.png
 
 and it will bring up the png of the created identicon.
+
+![Banana Identicon](banana.png)
 
 ## Tests
 

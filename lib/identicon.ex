@@ -4,11 +4,11 @@ defmodule Identicon do
   """
 
   @doc """
-  Main
+  Creates and saves a png of an Identicon from a series of characters in a string.
 
   ## Examples
 
-      iex(1)> Identicon.main("strawberry")
+      iex(1)> Identicon.main("banana")
       :ok
 
   """
