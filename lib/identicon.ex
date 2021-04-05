@@ -23,10 +23,16 @@ defmodule Identicon do
     |> save_image(input)
   end
 
+  @doc """
+  Saves the image with the string input as the name of the file.
+  """
   def save_image(image, input) do 
     File.write("#{input}.png", image)
   end
 
+  @doc """
+  Renders a binary from the primitives specified by egd_image().
+  """
   def draw_image(%Identicon.Image{color: color, pixel_map: pixel_map}) do 
     image = :egd.create(250, 250)
     fill = :egd.color(color)
