@@ -81,21 +81,7 @@ defmodule Identicon do
   Enum.with_index takes every element and turns it into a two element tuple with the second element being the index.
 
   Examples:
-      iex(1)> hash_input = Identicon.hash_input("asdf")
-      %Identicon.Image{
-        color: nil,
-        grid: nil,
-        hex: [145, 46, 200, 3, 178, 206, 73, 228, 165, 65, 6, 141, 73, 90, 181, 112],
-        pixel_map: nil
-      }
-      iex(2)> color = Identicon.pick_color(hash_input)
-      %Identicon.Image{
-        color: {145, 46, 200},
-        grid: nil,
-        hex: [145, 46, 200, 3, 178, 206, 73, 228, 165, 65, 6, 141, 73, 90, 181, 112],
-        pixel_map: nil
-      }
-      iex(4)> Identicon.build_grid(color)
+      iex(8)> Identicon.build_grid(%Identicon.Image{color: {145, 46, 200}, grid: nil, hex: [145, 46, 200, 3, 178, 206, 73, 228, 165, 65, 6, 141, 73, 90, 181, 112], pixel_map: nil})
       %Identicon.Image{
         color: {145, 46, 200},
         grid: [ {145, 0}, {46, 1}, {200, 2}, {46, 3}, {145, 4}, 
