@@ -31,7 +31,6 @@ In a new terminal in the Identicon directory you can run.
 
 and it will bring up the png of the created identicon.
 
-
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed

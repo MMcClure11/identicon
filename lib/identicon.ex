@@ -80,6 +80,18 @@ defmodule Identicon do
     %Identicon.Image{image | color: {r, g, b}}
   end
 
+  @doc """
+  Returns a list of 16 numbers ranging from 0-255 to use to assign the color for the identicon and build the grid.
+
+  Examples:
+      iex(1)> hash_input = Identicon.hash_input("asdf")
+      %Identicon.Image{
+        color: nil,
+        grid: nil,
+        hex: [145, 46, 200, 3, 178, 206, 73, 228, 165, 65, 6, 141, 73, 90, 181, 112],
+        pixel_map: nil
+      }
+  """
   def hash_input(input) do 
     hex = :crypto.hash(:md5, input)
     |> :binary.bin_to_list
