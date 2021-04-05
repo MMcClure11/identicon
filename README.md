@@ -31,6 +31,21 @@ In a new terminal in the Identicon directory you can run.
 
 and it will bring up the png of the created identicon.
 
+## Documentation
+
+To access the documentation from the application you first need to get the dependency:
+
+    $ mix deps.get
+
+Then make the docs:
+
+    $ mix docs
+
+CD into the newly made doc folder and open the html file:
+
+    $ cd doc
+    $ open index.html
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
