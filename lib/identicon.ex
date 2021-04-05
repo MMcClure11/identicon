@@ -78,6 +78,7 @@ defmodule Identicon do
 
   @doc """
   Returns a struct with color containing the three numbers used to set the RGB for color.
+  
   Examples:
       iex(1)> hash_input = Identicon.hash_input("asdf")
       %Identicon.Image{
