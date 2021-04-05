@@ -77,7 +77,7 @@ defmodule Identicon do
   end
 
   @doc """
-  Returns a struct with color containing the three numbers used to set the RGB for color.
+  Uses pattern matching to return a struct with color tuple containing the first three numbers from the hex list which is used to set the RGB for color and the hex list.
   
   Examples:
       iex(1)> hash_input = Identicon.hash_input("asdf")
