@@ -31,6 +31,12 @@ In a new terminal in the Identicon directory you can run.
 
 and it will bring up the png of the created identicon.
 
+## Tests
+
+To run the tests:
+
+    $ mix test
+
 ## Documentation
 
 To access the documentation from the application you first need to get the dependency:
